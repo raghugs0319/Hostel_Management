@@ -13,32 +13,37 @@ A full-featured **Django-based Hostel Management System** that streamlines hoste
 ## 📸 Screenshots
 
 ### 🏠 Home Page
-![Home Page](screenshots/home_page.png)
+![Home Page](screenshots/01_home_page.png)
 
 ---
 
 ### 🔐 Admin Login
-![Admin Login](screenshots/admin_login.png)
+![Admin Login](screenshots/02_admin_login.png)
 
 ---
 
-### 📊 Admin Dashboard
-![Admin Dashboard](screenshots/admin_dashboard.png)
+### 🔐 Warden Login
+![Warden Login](screenshots/03_warden_login.png)
 
 ---
 
-### 🎓 Student Dashboard
-![Student Dashboard](screenshots/student_dashboard.png)
-
----
-
-### 🛏️ Room Management
-![Room Management](screenshots/room_management.png)
+### 🎓 Student Login
+![Student Login](screenshots/04_student_login.png)
 
 ---
 
 ### 📝 Student Registration
-![Student Registration](screenshots/student_registration.png)
+![Student Registration](screenshots/05_student_register.png)
+
+---
+
+### 🛏️ Add Room
+![Add Room](screenshots/06_add_room.png)
+
+---
+
+### 📢 Add Notice
+![Add Notice](screenshots/07_add_notice.png)
 
 ---
 
