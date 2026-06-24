@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Warden Dashboard</title>
+
+<style>
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(135deg, #1E90FF, #00BFFF);
+    padding: 15px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.navbar a {
+    color: #fff;
+    margin: 5px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background: #fff;
+    color: #1E90FF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Welcome Heading */
+.container h2 {
+    margin-bottom: 30px;
+    color: #1E90FF;
+    font-size: 2rem;
+}
+
+/* Cards */
+.card {
+    width: 23%;
+    display: inline-block;
+    background: #fff;
+    padding: 25px 15px;
+    margin: 10px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.card h3 {
+    font-size: 2rem;
+    color: #00BFFF;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.card:hover {
+    background: #1E90FF;
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.card:hover h3, .card:hover p {
+    color: #fff;
+}
+
+/* Responsive */
+@media(max-width:900px){
+    .card {
+        width: 45%;
+        margin: 15px 2%;
+    }
+}
+
+@media(max-width:600px){
+    .card {
+        width: 90%;
+        margin: 15px auto;
+    }
+    .navbar {
+        flex-direction: column;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="#">Dashboard</a>
+    <a href="/students/view-students/">Students</a>
+    <a href="/rooms/view-rooms/">Rooms</a>
+    <a href="{% url 'view_complaints' %}">Complaints</a>
+    <a href="/notice/view/">Notice</a>
+    <!-- <a href="/rooms/vacant-students/">Vacant Students</a> -->
+    <a href="/fees/add-fee/">Add Fees</a>
+    <a href="/fees/view-fees/">View Fees</a>
+    <a href="/warden-logout/">Logout</a>
+</div>
+
+<!-- Container -->
+<div class="container">
+
+<h2>Welcome {{warden.name}}</h2>
+
+<div class="card">
+    <h3>{{students}}</h3>
+    <p>Total Students</p>
+</div>
+
+<div class="card">
+    <h3>{{rooms}}</h3>
+    <p>Total Rooms</p>
+</div>
+
+<div class="card">
+    <h3>{{complaints}}</h3>
+    <p>Total Complaints</p>
+</div>
+
+</div>
+
+</body>
+</html>

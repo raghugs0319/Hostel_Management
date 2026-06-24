@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notice Board</title>
+
+<style>
+/* Reset & Body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #ffffff;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    background: linear-gradient(135deg, #1E90FF, #00BFFF);
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 30px;
+}
+
+.navbar a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background: #ffffff;
+    color: #1E90FF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+/* Notice Card */
+.notice {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.notice:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.notice h3 {
+    color: #1E90FF;
+    margin-bottom: 10px;
+}
+
+.notice p {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.notice small {
+    color: #555;
+}
+
+/* Delete Button */
+.delete {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #FF4500;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.delete:hover {
+    background: #FF6347;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media(max-width:700px){
+    .container {
+        width: 95%;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="/dashboard/">Dashboard</a>
+</div>
+
+<h2 style="text-align:center; margin-bottom:20px; color:#1E90FF;">Notice Board</h2>
+
+<div class="container">
+{% for notice in notices %}
+<div class="notice">
+    <a class="delete" href="{% url 'delete_notice' notice.id %}">Delete</a>
+    <h3>{{notice.title}}</h3>
+    <p>{{notice.description}}</p>
+    <small>{{notice.date}}</small>
+</div>
+{% endfor %}
+</div>
+
+</body>
+</html>

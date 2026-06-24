@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wardens</title>
+
+<style>
+/* Reset & Body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #ffffff;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    background: linear-gradient(135deg, #1E90FF, #00BFFF);
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 30px;
+}
+
+.navbar a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background: #ffffff;
+    color: #1E90FF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Container */
+.container {
+    width: 90%;
+    margin: 20px auto;
+    overflow-x: auto;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background: #1E90FF;
+    color: #fff;
+    font-weight: bold;
+}
+
+tr:hover {
+    background: rgba(30,144,255,0.1);
+}
+
+/* Images */
+img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Delete Button */
+a {
+    padding: 5px 10px;
+    background: #FF4500;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background: #FF6347;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media(max-width:700px){
+    th, td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    img {
+        width: 50px;
+        height: 50px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="/dashboard/">Dashboard</a>
+</div>
+
+<h2 style="text-align:center; margin-bottom:20px; color:#1E90FF;">Wardens</h2>
+
+<div class="container">
+<table>
+<tr>
+<th>Photo</th>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Username</th>
+<th>Action</th>
+</tr>
+
+{% for warden in wardens %}
+<tr>
+<td><img src="{{warden.photo.url}}"></td>
+<td>{{warden.name}}</td>
+<td>{{warden.email}}</td>
+<td>{{warden.phone}}</td>
+<td>{{warden.username}}</td>
+<td><a href="/delete-warden/{{warden.id}}/">Delete</a></td>
+</tr>
+{% endfor %}
+
+</table>
+</div>
+
+</body>
+</html>

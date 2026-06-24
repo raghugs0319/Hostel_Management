@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Students</title>
+
+<style>
+/* Reset & Body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #ffffff;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    background: linear-gradient(135deg, #1E90FF, #00BFFF);
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 30px;
+}
+
+.navbar a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background: #ffffff;
+    color: #1E90FF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Page Heading */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1E90FF;
+}
+
+/* Table */
+table {
+    width: 95%;
+    margin: 0 auto 30px auto;
+    border-collapse: collapse;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+th {
+    background: #1E90FF;
+    color: #fff;
+    font-weight: bold;
+}
+
+tr:hover {
+    background: #e0f0ff;
+}
+
+/* Images */
+img {
+    width: 80px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Links / Buttons */
+a {
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    background: #1E90FF;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background: #00BFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="/dashboard/">Dashboard</a>
+</div>
+
+<!-- Page Heading -->
+<h2>Students</h2>
+
+<!-- Students Table -->
+<table>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Room</th>
+<th>Photo</th>
+<th>ID Proof</th>
+<th>Delete</th>
+</tr>
+
+{% for student in students %}
+<tr>
+<td>{{student.name}}</td>
+<td>{{student.email}}</td>
+<td>{{student.phone}}</td>
+<td>{{student.room}}</td>
+<td><img src="{{student.photo.url}}" alt="Student Photo"></td>
+<td><a href="{{student.id_proof.url}}">View</a></td>
+<td><a href="/students/delete-student/{{student.id}}/">Delete</a></td>
+</tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
